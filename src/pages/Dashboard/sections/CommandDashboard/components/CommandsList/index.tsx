@@ -3,7 +3,10 @@ import { ICommandListProps } from "./types";
 
 import * as S from "./styles";
 
-export default function CommandsList({ commandList }: ICommandListProps) {
+export default function CommandsList({
+  commandList,
+  actions,
+}: ICommandListProps) {
   return (
     <S.Container>
       <S.CommandRowHeader>
@@ -21,7 +24,11 @@ export default function CommandsList({ commandList }: ICommandListProps) {
           <S.CommandRowResponse>{command.response}</S.CommandRowResponse>
 
           <S.CommandEditButtonContainer>
-            <S.CommandEditButton>X</S.CommandEditButton>
+            <S.CommandEditButton
+              onClick={() => actions?.onEditPress(command._id)}
+            >
+              X
+            </S.CommandEditButton>
           </S.CommandEditButtonContainer>
         </S.CommandRow>
       ))}

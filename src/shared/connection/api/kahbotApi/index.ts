@@ -11,10 +11,6 @@ export const axiosClient = axios.create({
   },
 });
 
-// export function setAuthHeader(token: string) {
-//   axiosClient.defaults.headers.authorization = `Bearer ${token}`;
-// }
-
 export default {
   command: Command.createCommandInstanceApi(axiosClient),
 };

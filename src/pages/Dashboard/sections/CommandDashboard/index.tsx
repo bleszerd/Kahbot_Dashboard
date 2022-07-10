@@ -4,15 +4,17 @@ import CommandsList from "./components/CommandsList";
 
 import { useDispatch } from "react-redux";
 import { useReduxSelector } from "../../../../hooks/useReduxSelector";
-import { getAllCommands } from "../../../../redux/slices/command";
+import { getAllCommands, getCommand } from "../../../../redux/slices/command";
 import {
   selectAllCommands,
   selectFetchingCommand,
 } from "../../../../redux/slices/command/selectores";
 import { AppDispatch } from "../../../../redux/types";
+import { useNavigate } from "react-router-dom";
 
 export default function CommandDashboard() {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
 
   const allCommands = useReduxSelector(selectAllCommands);
   const fetchingCommand = useReduxSelector(selectFetchingCommand);
@@ -21,11 +23,17 @@ export default function CommandDashboard() {
     dispatch(getAllCommands());
   }, []);
 
+  const onEditPress = (commandId: string | undefined) => {
+    if (!commandId) return;
+
+    navigate(`/dashboard/commands/${commandId}`);
+  };
+
   return (
     <div>
       <h1>Commands Dashboard</h1>
 
-      <CommandsList commandList={allCommands} />
+      <CommandsList commandList={allCommands} actions={{ onEditPress }} />
     </div>
   );
 }

@@ -1,6 +1,25 @@
-import { ICommand } from "../../../../shared/connection/api/kahbotApi/command/types";
+import {
+  ICommand,
+  ICommandAsResponse,
+} from "../../../../shared/connection/api/kahbotApi/command/types";
 
 export interface ICommandSliceInitialState {
   fetchingCommand: boolean;
-  allCommands: ICommand[];
+  lastQueriedCommand: ICommandAsResponse | null;
+  allCommands: ICommandAsResponse[];
+}
+
+export interface IGetCommandResponse {
+  response: ICommandAsResponse;
+}
+
+export interface IGetCommandParams {
+  id?: string;
+  alias?: string;
+}
+
+export interface IUpdateCommand {
+  id?: string;
+  alias?: string;
+  newCommand: ICommand;
 }

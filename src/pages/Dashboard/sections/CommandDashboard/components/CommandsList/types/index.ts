@@ -1,5 +1,10 @@
-import { ICommand } from "../../../../../../../shared/connection/api/kahbotApi/command/types";
+import { ICommandAsResponse } from "../../../../../../../shared/connection/api/kahbotApi/command/types";
 
 export interface ICommandListProps {
-  commandList: ICommand[];
+  commandList: ICommandAsResponse[];
+  actions?: {
+    onEditPress: OnEditPressFn;
+  };
 }
+
+export type OnEditPressFn = (commandId?: string) => void;

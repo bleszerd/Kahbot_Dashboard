@@ -8,6 +8,7 @@ import ExternalScriptImport from "./global/components/utils/ExternalScriptImport
 import theme from "./global/theme";
 import Dashboard from "./pages/Dashboard";
 import CommandDashboard from "./pages/Dashboard/sections/CommandDashboard";
+import CommandDashboardEdit from "./pages/Dashboard/sections/CommandDashboardEdit/indesx";
 
 import HomePage from "./pages/HomePage";
 import { store } from "./redux";
@@ -36,6 +37,11 @@ function App() {
               <Route
                 path="/dashboard/commands"
                 element={<CommandDashboard />}
+              />
+
+              <Route
+                path="/dashboard/commands/:commandId"
+                element={<CommandDashboardEdit />}
               />
             </Routes>
           </BrowserRouter>
