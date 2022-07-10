@@ -4,3 +4,7 @@ export const FullScreenContainer = styled.div`
   width: 100vw;
   height: 100vh;
 `;
+
+export const AppContainer = styled.div`
+  display: flex;
+`;

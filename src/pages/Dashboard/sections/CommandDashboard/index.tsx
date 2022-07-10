@@ -12,6 +12,8 @@ import {
 import { AppDispatch } from "../../../../redux/types";
 import { useNavigate } from "react-router-dom";
 
+import * as S from "./styles";
+
 export default function CommandDashboard() {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
@@ -30,10 +32,10 @@ export default function CommandDashboard() {
   };
 
   return (
-    <div>
+    <S.Container>
       <h1>Commands Dashboard</h1>
 
       <CommandsList commandList={allCommands} actions={{ onEditPress }} />
-    </div>
+    </S.Container>
   );
 }
